@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.android.databinding'
 
 android {
     compileSdkVersion 25
@@ -18,6 +19,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding {
+        enabled = true
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
 }
 
 dependencies {
@@ -29,6 +36,25 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    //Realm
+    compile 'io.realm:realm-android:0.87.4'
+    //RxAndroid
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'io.reactivex:rxjava:1.1.0'
+    //RxBindings
+    compile 'com.jakewharton.rxbinding:rxbinding:0.3.0'
+    //Retrofit
+    compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
+    //Retrofit Adapter and Converter
+    compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta2'
+    compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
+    //Glide
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    //Databinding and Realm Annotations
+    kapt 'com.android.databinding:compiler:1.0-rc4'
+    kapt "io.realm:realm-annotations:0.87.4"
+    kapt "io.realm:realm-annotations-processor:0.87.4"
 }
 repositories {
     mavenCentral()
