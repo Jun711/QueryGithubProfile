@@ -2,7 +2,7 @@ package com.jun.querygithubprofile
 
 import android.support.v7.app.AppCompatActivity
 import android.databinding.DataBindingUtil
-
+import android.databinding.ActivityMainBinding
 import android.os.Bundle
 import android.util.Log.*
 import com.google.gson.ExclusionStrategy
